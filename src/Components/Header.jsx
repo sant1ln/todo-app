@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoHeader({ children, loading }) {
+function Header({ children, loading }) {
   return (
     <header>
       {
@@ -12,4 +12,4 @@ function TodoHeader({ children, loading }) {
   );
 }
 
-export { TodoHeader };
+export { Header };

@@ -1,7 +1,7 @@
 import React from 'react';
-import './TodoList.css'
+import './styles/TodoList.css'
 
-function TodoList(props) {
+export function List(props) {
   const renderFunc = props.children || props.render;
   
   return (
@@ -18,4 +18,3 @@ function TodoList(props) {
   );
 }
 
-export { TodoList };

@@ -1,7 +1,7 @@
 import React from 'react';
-import './TodoForm.css';
+import './styles/TodoForm.css';
 
-function TodoForm({ addTodo, setOpenModal }) {
+export function Form({ addTodo, setOpenModal }) {
   const [newTodoValue, setNewTodoValue] = React.useState('');
 
   const onChange = (event) => {
@@ -43,4 +43,3 @@ function TodoForm({ addTodo, setOpenModal }) {
   );
 }
 
-export { TodoForm };

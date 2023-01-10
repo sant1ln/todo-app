@@ -1,9 +1,9 @@
 import React from 'react';
-import { CompleteIcon } from '../TodoIcon/CompleteIcon';
-import { DeleteIcon } from '../TodoIcon/DeleteIcon';
-import './TodoItem.css';
+import { CompleteIcon } from './TodoIcon/CompleteIcon';
+import { DeleteIcon } from './TodoIcon/DeleteIcon';
+import './styles/TodoItem.css';
 
-function TodoItem(props) {
+export function Item(props) {
   return (
     <li className="TodoItem">
       <CompleteIcon
@@ -22,4 +22,4 @@ function TodoItem(props) {
   );
 }
 
-export { TodoItem };
+
