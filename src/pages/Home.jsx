@@ -31,6 +31,7 @@ export const Home = () => {
     addTodo,
     completeTodo,
     deleteTodo,
+    editTodo,
     setSearchValue,
     sincronizeTodos,
   } = stateUpdaters;
@@ -68,6 +69,7 @@ export const Home = () => {
             completed={todo.completed}
             onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
+            onEdit={() => editTodo(todo.text)}
           />
         )}
       </List>

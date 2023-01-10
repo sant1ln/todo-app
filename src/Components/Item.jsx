@@ -12,6 +12,7 @@ export function Item(props) {
       />
       <p
         className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}
+        onClick={props.onEdit}
       >
         {props.text}
       </p>
