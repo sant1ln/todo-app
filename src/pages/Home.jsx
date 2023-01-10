@@ -6,26 +6,14 @@ import { Header } from '../Components/Header';
 import { Item } from '../Components/Item';
 import { List } from '../Components/List';
 import { Search } from '../Components/Search';
-import { useTodos } from './useTodos';
-/* import { TodoHeader } from '../TodoHeader';
-import { TodoCounter } from '../TodoCounter';
-import { TodoSearch } from '../TodoSearch';
-import { TodoList } from '../TodoList';
-import { TodoItem } from '../TodoItem';
-import { TodosError } from '../TodosError';
-import { TodosLoading } from '../TodosLoading';
-import { EmptyTodos } from '../EmptyTodos';
-import { TodoForm } from '../TodoForm';
-import { CreateTodoButton } from '../CreateTodoButton';
-import { Modal } from '../Modal';
-import { ChangeAlert } from '../ChangeAlert'; */
 import { ChangeAlert } from '../Components/ChangeAlert'; 
 import { Loading } from '../Components/Loading';
 import { EmptyTodos } from '../Components/EmptyTodos';
 import { Error } from '../Components/Error';
 import { Modal } from '../Components/Modal';
+import { useTodos } from '../Hooks/useTodos';
 
-function App() {
+export const Home = () => {
   const { state, stateUpdaters } = useTodos();
 
   const {
@@ -103,5 +91,3 @@ function App() {
     </React.Fragment>
   );
 }
-
-export default App;
