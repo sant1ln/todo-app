@@ -6,7 +6,9 @@ export function Form(props) {
   const navigate = useNavigate(); 
   
   const location = useLocation();
-  const [newTodoValue, setNewTodoValue] = React.useState('');
+
+
+  const [newTodoValue, setNewTodoValue] = React.useState(props.defaultText || '');
 
   const onChange = (event) => {
     setNewTodoValue(event.target.value);
@@ -16,6 +18,7 @@ export function Form(props) {
     navigate('/')
     /* setOpenModal(false); */
   };
+
   const onSubmit = (event) => {
     event.preventDefault();
     props.submitEvent(newTodoValue);

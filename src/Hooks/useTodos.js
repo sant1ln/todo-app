@@ -39,26 +39,31 @@ function useTodos() {
   };
 
   const completeTodo = (id) => {
-    const todoIndex = todos.findIndex(todo => todo.id == id);
-    console.log(id)
+    const todoIndex = getIndex(id,todos);
     const newTodos = [...todos];
-    newTodos[todoIndex].completed = true;
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     saveTodos(newTodos);
   };
   
   const editTodo = (id, newText) => {
-    const todoIndex = todos.findIndex(todo => todo.id === id);
+    const todoIndex = getIndex(id,todos);
     const newTodos = [...todos];
     newTodos[todoIndex].text = newText;
     saveTodos(newTodos);
   };
 
   const deleteTodo = (id) => {
-    const todoIndex = todos.findIndex(todo => todo.id === id);
+    const todoIndex = getIndex(id,todos);
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
   }; 
+
+  const getTodo = (id) => {
+    console.log(todos)
+    const todoIndex = todos.findIndex(todo =>  todo.id == id);
+    return todos[todoIndex];
+  }
   
   const state = {
     loading,
@@ -68,6 +73,7 @@ function useTodos() {
     searchValue,
     searchedTodos,
     openModal,
+    getTodo,
   };
   
   const stateUpdaters = {
@@ -86,6 +92,10 @@ function useTodos() {
 function newId(array){
   console.log(array)
   return (array.length)?(Math.max(...array.map(el=>el.id))+1):1
+}
+
+function getIndex(id,todos){
+  return todos.findIndex(todo => todo.id == id);
 }
 
 export { useTodos };

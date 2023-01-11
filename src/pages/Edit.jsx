@@ -1,18 +1,32 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
 import { Form } from '../Components/Form'
 import { useTodos } from '../Hooks/useTodos'
 
 export const Edit = () => {
 
-  const { stateUpdaters } = useTodos()
+  const params = useParams();
 
-  const { editTodo } = stateUpdaters
+  const id = Number(params.id)
 
-  return (
-    <>
-      <Form
-        submitEvent={() => console.log('Pendiente crear funcionalidad')}
-      />
-    </>
-  )
+  const { stateUpdaters, state } = useTodos()
+  const { editTodo } = stateUpdaters;
+  const { loading, getTodo } = state;
+
+  if (loading) {
+    return <p>Cargando...</p>
+  } else {
+    const formData = getTodo(id);
+    console.log(formData)
+    return (
+      <>
+        <Form
+          defaultText={formData.text}
+          submitEvent={(text) => editTodo(id, text)}
+        />
+      </>
+    )
+  }
+
+
 }
