@@ -12,8 +12,12 @@ import { EmptyTodos } from '../Components/EmptyTodos';
 import { Error } from '../Components/Error';
 import { Modal } from '../Components/Modal';
 import { useTodos } from '../Hooks/useTodos';
+import { useNavigate } from 'react-router-dom';
 
 export const Home = () => {
+
+  const navigate = useNavigate();
+
   const { state, stateUpdaters } = useTodos();
 
   const {
@@ -69,7 +73,7 @@ export const Home = () => {
             completed={todo.completed}
             onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
-            onEdit={() => editTodo(todo.text)}
+            onEdit={() => navigate('/edit/' + todo.id)}
           />
         )}
       </List>
@@ -84,7 +88,8 @@ export const Home = () => {
       )}
 
       <CreateTodoButton
-        setOpenModal={setOpenModal}
+        onClick={() => navigate('/new')}
+        /* setOpenModal={setOpenModal} */
       />
 
       <ChangeAlert
