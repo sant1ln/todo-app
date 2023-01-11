@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './styles/TodoForm.css';
 
-export function Form({ addTodo, setOpenModal },props) {
+export function Form(props) {
   const navigate = useNavigate(); 
   
   const location = useLocation();
@@ -22,14 +22,6 @@ export function Form({ addTodo, setOpenModal },props) {
     navigate('/')
     /* setOpenModal(false); */
   };
-
-  const getCurrentLocation = (type) => {
-    const currentLocation = location.pathname;
-    if(currentLocation === '/new'){
-      return 'Escribre tu nuevo TODO'
-    }
-    return 'Edita tu TODO'
-  }
 
   return (
     <form onSubmit={onSubmit}>

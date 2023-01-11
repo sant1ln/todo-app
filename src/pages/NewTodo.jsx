@@ -11,7 +11,7 @@ export const NewTodo = () => {
     <>
       <Form
         /* addTodo={addTodo} */
-        submitEvent={() => console.log('Pendiente crear funcionalidad')}
+        submitEvent={(text) => addTodo(text)}
       />
     </>
   )

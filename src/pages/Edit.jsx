@@ -1,11 +1,18 @@
 import React from 'react'
 import { Form } from '../Components/Form'
+import { useTodos } from '../Hooks/useTodos'
 
 export const Edit = () => {
+
+  const { stateUpdaters } = useTodos()
+
+  const { editTodo } = stateUpdaters
+
   return (
-    <div><Form
-    /* addTodo={addTodo} */
-    submitEvent={() => console.log('Pendiente crear funcionalidad')}
-  /></div>
+    <>
+      <Form
+        submitEvent={() => console.log('Pendiente crear funcionalidad')}
+      />
+    </>
   )
 }

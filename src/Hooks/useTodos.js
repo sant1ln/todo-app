@@ -39,9 +39,17 @@ function useTodos() {
   };
 
   const completeTodo = (id) => {
-    const todoIndex = todos.findIndex(todo => todo.id === id);
+    const todoIndex = todos.findIndex(todo => todo.id == id);
+    console.log(id)
     const newTodos = [...todos];
     newTodos[todoIndex].completed = true;
+    saveTodos(newTodos);
+  };
+  
+  const editTodo = (id, newText) => {
+    const todoIndex = todos.findIndex(todo => todo.id === id);
+    const newTodos = [...todos];
+    newTodos[todoIndex].text = newText;
     saveTodos(newTodos);
   };
 
@@ -50,11 +58,7 @@ function useTodos() {
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
-  };
-
-  const editTodo = (text) => {
-    console.log(text)
-  }
+  }; 
   
   const state = {
     loading,
